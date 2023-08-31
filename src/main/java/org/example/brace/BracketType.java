@@ -55,6 +55,11 @@ public enum BracketType {
         this.closingChar = requireNonNull(closingChar, "closingChar");
     }
 
+    /**
+     * Получить тип скобки по символу
+     * @param character символ
+     * @return тип скобки
+     */
     @Nonnull
     public static Optional<BracketType> findBracket(@Nonnull Character character) {
         return Arrays.stream(BracketType.values()).
@@ -64,16 +69,24 @@ public enum BracketType {
 
     /**
      * Проверяет является ли символ скобкой
-     * @return
+     * @return true, если является, иначе false
      */
     public static boolean IsBracket(@Nonnull Character character) {
         return isClosingBracket(character) || isOpeningBracket(character);
     }
 
+    /**
+     * Проверяет является ли символ открывающей скобкой
+     * @return true, если является, иначе false
+     */
     public static boolean isOpeningBracket(@Nonnull Character character) {
         return OPENING_BRACKETS.contains(character);
     }
 
+    /**
+     * Проверяет является ли символ закрывающей скобкой
+     * @return true, если является, иначе false
+     */
     public static boolean isClosingBracket(@Nonnull Character character) {
         return CLOSING_BRACKETS.contains(character);
     }
